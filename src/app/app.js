@@ -8,12 +8,16 @@ const { errorHandlerMiddleware } = require("./middleware/error-handler.middlewar
 const userController = require("./controller/user.controller");
 
 async function bootstarp() {
+    const API_PREFIX = "/api";
     const PORT = process.env.PORT;
     await connectToMongoDb();
 
     app.use(express.json());
     app.use(loggerMiddleware);
-    app.use(userController);
+    app.use(API_PREFIX + "/user", userController);
+    app.all("*", (req, res) => res.status(404).json({
+        message: "Requested route not found."
+    }));
     app.use(errorHandlerMiddleware);
     app.listen(PORT, () => {
         console.log(`Server is running at http://127.0.0.1:${PORT}`);
