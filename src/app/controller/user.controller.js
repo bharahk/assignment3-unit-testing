@@ -1,6 +1,6 @@
-const { validateUserInfo, validateUserId } = require("../utils/req.validator");
-
 const router = require("express").Router();
+
+const { validateUserInfo, validateUserId } = require("../utils/req.validator");
 
 router.get("/", (req, res) => {
     res.json({ message: "test." });
