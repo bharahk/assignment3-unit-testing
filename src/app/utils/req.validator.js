@@ -8,9 +8,9 @@ function validateUserId(emailId) {
     return true;
 }
 
-function validateEmailId(emailId) {
-    if(!emailId?.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/) || emailId?.length > 320) {
-        throw new HttpException(400, "Invalid request. please check the emailId.");
+function validateName(name) {
+    if(typeof name !== "string" || name.length < 2 || name.length > 100) {
+        throw new HttpException(400, "Invalid request. please check the name.");
     }
 
     return true;
@@ -24,8 +24,8 @@ function validateAddress(address) {
     return true;
 }
 
-function validateUserInfo({ userId, emailId, address }) {
-    return validateUserId(userId) && validateEmailId(emailId) && validateAddress(address?.trim());
+function validateUserInfo({ userId, name, address }) {
+    return validateUserId(userId) && validateName(name?.trim()) && validateAddress(address?.trim());
 }
 
 module.exports = {

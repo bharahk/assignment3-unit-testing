@@ -6,16 +6,18 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    emailId: {
+    name: {
         type: String,
         required: true,
-        unique: true,
-        maxlength: 320
+        minlength: 2,
+        maxlength: 100,
+        trim: true
     },
     address: {
         type: String,
         required: true,
-        maxlength: 1000
+        maxlength: 1000,
+        trim: true
     }
 });
 

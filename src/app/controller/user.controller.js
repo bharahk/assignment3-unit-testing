@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-const { validateUserInfo, validateUserId } = require("../utils/req.validator");
+const { validateUserInfo } = require("../utils/req.validator");
 const { createUser, getAllUsers, updateUserByUserId } = require("../service/user.service");
 
 router.post("/", (req, res, next) => {
