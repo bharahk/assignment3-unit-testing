@@ -1,13 +1,13 @@
 const router = require("express").Router();
 
-const { validateUserInfo } = require("../utils/req.validator");
+const { validateUserData } = require("../utils/req.validator");
 const { createUser, getAllUsers, updateUserByUserId } = require("../service/user.service");
 
 router.post("/", (req, res, next) => {
-    validateUserInfo(req.body);
+    validateUserData(req.body);
 
     createUser(req.body)
-    .then(responseBody => res.json(responseBody))
+    .then(responseBody => res.status(201).json(responseBody))
     .catch(err => next(err));
 });
 
@@ -18,7 +18,7 @@ router.get("/", (req, res) => {
 });
 
 router.put("/", (req, res, next) => {
-    validateUserInfo(req.body);
+    validateUserData(req.body);
 
     updateUserByUserId(req.body)
     .then(responseBody => res.json(responseBody))

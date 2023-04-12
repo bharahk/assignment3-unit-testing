@@ -24,11 +24,11 @@ function validateAddress(address) {
     return true;
 }
 
-function validateUserInfo({ userId, name, address }) {
+function validateUserData({ userId, name, address }) {
     return validateUserId(userId) && validateName(name?.trim()) && validateAddress(address?.trim());
 }
 
 module.exports = {
-    validateUserInfo: validateUserInfo,
+    validateUserData: validateUserData,
     validateUserId: validateUserId
 };

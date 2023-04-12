@@ -25,8 +25,13 @@ async function updateUserByUserId({ userId, name, address }) {
     return { message: "User updated successfully." };
 }
 
+async function getUserByUserId(userId) {
+    return await User.findOne({ userId: userId });
+}
+
 module.exports = {
     createUser: createUser,
     getAllUsers: getAllUsers,
-    updateUserByUserId
+    updateUserByUserId: updateUserByUserId,
+    getUserByUserId: getUserByUserId
 };
