@@ -8,7 +8,7 @@ const { loggerMiddleware } = require("./middleware/logger.middleware");
 const { errorHandlerMiddleware } = require("./middleware/error-handler.middleware");
 const userController = require("./controller/user.controller");
 
-async function bootstarp() {
+async function bootstrap() {
     const API_PREFIX = "/api";
     const PORT = process.env.PORT;
     await connectToMongoDb();
@@ -25,7 +25,7 @@ async function bootstarp() {
     });
 }
 
-bootstarp().catch(err => {
+bootstrap().catch(err => {
     logger.error(`Error occured while starting the server: `, err);
     logger.info(`TERMINATING THE SERVER.`);
     process.exit();
