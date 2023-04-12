@@ -18,6 +18,4 @@ function loggerMiddleware(req, res, next) {
     next();
 }
 
-module.exports = {
-    loggerMiddleware: loggerMiddleware
-};
+module.exports = loggerMiddleware;

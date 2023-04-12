@@ -4,8 +4,8 @@ const app = express();
 
 const logger = require("./utils/logger");
 const { connectToMongoDb } = require("./config/mongodb.config");
-const { loggerMiddleware } = require("./middleware/logger.middleware");
-const { errorHandlerMiddleware } = require("./middleware/error-handler.middleware");
+const loggerMiddleware = require("./middleware/logger.middleware");
+const errorHandlerMiddleware = require("./middleware/error-handler.middleware");
 const userController = require("./controller/user.controller");
 
 async function bootstrap() {
