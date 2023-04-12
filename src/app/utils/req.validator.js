@@ -1,7 +1,7 @@
 const HttpException = require("./http.exception");
 
 function validateUserId(userId) {
-    if(!userId?.match(/U\d{5}$/)) {
+    if(!userId?.match(/^U\d{5}$/)) {
         throw new HttpException(400, "Invalid request. please check the userId.");
     }
 
