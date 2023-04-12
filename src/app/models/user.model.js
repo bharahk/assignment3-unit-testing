@@ -4,12 +4,13 @@ const userSchema = new mongoose.Schema({
     userId: {
         type: String,
         required: true,
-        unique: true,
+        unique: true
     },
     emailId: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        maxlength: 320
     },
     address: {
         type: String,

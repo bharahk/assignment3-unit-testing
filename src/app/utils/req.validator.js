@@ -9,7 +9,7 @@ function validateUserId(emailId) {
 }
 
 function validateEmailId(emailId) {
-    if(!emailId?.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/)) {
+    if(!emailId?.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/) || emailId?.length > 320) {
         throw new HttpException(400, "Invalid request. please check the emailId.");
     }
 
@@ -25,7 +25,7 @@ function validateAddress(address) {
 }
 
 function validateUserInfo({ userId, emailId, address }) {
-    return validateUserId(userId) && validateEmailId(emailId) && validateAddress(address);
+    return validateUserId(userId) && validateEmailId(emailId) && validateAddress(address?.trim());
 }
 
 module.exports = {
