@@ -7,6 +7,11 @@ function connectToMongoDb() {
     });
 }
 
+function closeMongoDbConnection() {
+    mongoose.connection.close();
+}
+
 module.exports = {
-    connectToMongoDb: connectToMongoDb
+    connectToMongoDb: connectToMongoDb,
+    closeMongoDbConnection: closeMongoDbConnection
 };

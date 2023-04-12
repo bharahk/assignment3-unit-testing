@@ -31,6 +31,4 @@ bootstrap().catch(err => {
     process.exit();
 });
 
-module.exports = {
-    app: app
-};
+module.exports = app;

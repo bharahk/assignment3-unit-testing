@@ -1,5 +1,5 @@
 const User = require("../models/user.model");
-const { HttpException } = require("../utils/http.exception");
+const HttpException = require("../utils/http.exception");
 
 async function createUser({ userId, name, address }) {
     await User.create({ userId, name, address }).catch(err => {

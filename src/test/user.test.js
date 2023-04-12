@@ -1,12 +1,12 @@
 const supertest = require("supertest");
-const mongoose = require("mongoose");
 
-const { app } = require("../app/app");
+const app = require("../app/app");
+const { closeMongoDbConnection } = require("../app/config/mongodb.config");
 const { getUserByUserId } = require("../app/service/user.service");
 const { validateUserData } = require("../app/utils/req.validator");
 
 afterAll(() => {
-    mongoose.connection.close();
+    closeMongoDbConnection();
 });
 
 describe("creating user", () => {
@@ -106,7 +106,7 @@ describe("creating user", () => {
         const { status, body } = await supertest(app)
         .post("/api/user")
         .send(userData);
-        
+
         if(status === 409 && await getUserByUserId(userData.userId)) {
             expect(body).toEqual({ message: "userId Already exists." });
         } else {

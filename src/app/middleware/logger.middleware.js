@@ -2,6 +2,7 @@ const logger = require("../utils/logger");
 
 function loggerMiddleware(req, res, next) {
     const originalResSend = res.send;
+    
     res.send = (body) => {
         logger.info({ 
             path: req.path, 

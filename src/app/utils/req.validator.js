@@ -1,4 +1,4 @@
-const { HttpException } = require("./http.exception");
+const HttpException = require("./http.exception");
 
 function validateUserId(emailId) {
     if(!emailId?.match(/U[0-9]{5}/)) {
@@ -29,6 +29,5 @@ function validateUserData({ userId, name, address }) {
 }
 
 module.exports = {
-    validateUserData: validateUserData,
-    validateUserId: validateUserId
+    validateUserData: validateUserData
 };

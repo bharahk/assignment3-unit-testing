@@ -9,6 +9,4 @@ class HttpException extends Error {
     }
 }
 
-module.exports = {
-    HttpException: HttpException
-};
+module.exports = HttpException;
