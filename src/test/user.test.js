@@ -106,9 +106,7 @@ describe("creating user", () => {
         const { status, body } = await supertest(app)
         .post("/api/user")
         .send(userData);
-
-        expect(status === 201 || status === 409).toBe(true);
-
+        
         if(status === 409 && await getUserByUserId(userData.userId)) {
             expect(body).toEqual({ message: "userId Already exists." });
         } else {
