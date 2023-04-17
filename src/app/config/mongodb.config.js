@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
+
+const { db } = require("./env.config");
 const logger = require("../utils/logger");
 
 async function connectToMongoDb() {
-    await mongoose.connect(process.env.MONGODB_URI).then(() => {
+    await mongoose.connect(db.MONGODB_URI).then(() => {
         logger.info("Connected to mongoDB.");
     });
 }

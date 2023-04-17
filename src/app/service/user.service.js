@@ -3,7 +3,7 @@ const HttpException = require("../utils/http.exception");
 
 async function createUser({ userId, name, address }) {
     await User.create({ userId, name, address }).catch(err => {
-        if(err.code === 11000) throw new HttpException(409, "userId Already exists.");
+        if (err.code === 11000) throw new HttpException(409, "userId Already exists.");
 
         throw err;
     });

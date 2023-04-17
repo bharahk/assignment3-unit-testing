@@ -1,7 +1,7 @@
-require("dotenv").config();
 const express = require("express");
 const app = express();
 
+const env = require("./config/env.config");
 const logger = require("./utils/logger");
 const { connectToMongoDb } = require("./config/mongodb.config");
 const loggerMiddleware = require("./middleware/logger.middleware");
@@ -10,7 +10,6 @@ const userController = require("./controller/user.controller");
 
 async function bootstrap() {
     const API_PREFIX = "/api";
-    const PORT = process.env.PORT;
     await connectToMongoDb();
 
     app.use(express.json());
@@ -20,8 +19,8 @@ async function bootstrap() {
         message: "Requested route not found."
     }));
     app.use(errorHandlerMiddleware);
-    app.listen(PORT, () => {
-        logger.info(`Server is running at http://127.0.0.1:${PORT}`);
+    app.listen(env.app.PORT, () => {
+        logger.info(`Server is running at http://127.0.0.1:${env.app.PORT}`);
     });
 }
 

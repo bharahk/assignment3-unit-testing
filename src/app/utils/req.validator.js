@@ -1,7 +1,7 @@
 const HttpException = require("./http.exception");
 
 function validateUserId(userId) {
-    if(!userId?.match(/^U\d{5}$/)) {
+    if (!userId?.match(/^U\d{5}$/)) {
         throw new HttpException(400, "Invalid request. please check the userId.");
     }
 
@@ -9,7 +9,7 @@ function validateUserId(userId) {
 }
 
 function validateName(name) {
-    if(typeof name !== "string" || name.length < 2 || name.length > 100) {
+    if (typeof name !== "string" || name.length < 2 || name.length > 100) {
         throw new HttpException(400, "Invalid request. please check the name.");
     }
 
@@ -17,7 +17,7 @@ function validateName(name) {
 }
 
 function validateAddress(address) {
-    if(typeof address !== "string" || !address || address.length > 1000) {
+    if (typeof address !== "string" || !address || address.length > 1000) {
         throw new HttpException(400, "Invalid request. please check the address.");
     }
 

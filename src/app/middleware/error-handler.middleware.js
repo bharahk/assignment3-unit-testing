@@ -1,7 +1,7 @@
 const logger = require("../utils/logger");
 
 function errorHandlerMiddleware(err, req, res, next) {
-    if(!err.statusCode) {
+    if (!err.statusCode) {
         logger.error(err);
         return res.status(500).json({ message: "Something went wrong. please try again later."});
     }

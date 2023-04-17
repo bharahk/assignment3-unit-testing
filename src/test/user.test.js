@@ -107,7 +107,7 @@ describe("creating user", () => {
         .post("/api/user")
         .send(userData);
 
-        if(status === 409 && await getUserByUserId(userData.userId)) {
+        if (status === 409 && await getUserByUserId(userData.userId)) {
             expect(body).toEqual({ message: "userId Already exists." });
         } else {
             expect(status).toBe(201);
