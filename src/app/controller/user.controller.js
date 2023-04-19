@@ -11,7 +11,7 @@ router.post("/", (req, res, next) => {
     .catch(err => next(err));
 });
 
-router.get("/", (req, res) => {
+router.get("/", (req, res, next) => {
     getAllUsers()
     .then(responseBody => res.json(responseBody))
     .catch(err => next(err));
